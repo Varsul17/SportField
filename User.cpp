@@ -6,7 +6,7 @@ char *User::Set_String(char * str) {
     return res;
 }
 
-bool User::Check_Letter(char *str) {
+bool User::Check_Letters(char *str) {
     for (int i = 0; i < strlen(str); ++i) {
         if (!Check_Upper(str[i]) && !Check_Lower(str[i]))
             return false;
@@ -22,7 +22,7 @@ void User::Set_Name() {
     cout << "Enter your first name: " << endl;
     msg01();
     cin >> first_name;
-    while (!Check_Letter(first_name) || !(Check_Range(1,NAME_LIM, int(strlen(first_name))))){
+    while (!Check_Letters(first_name) || !(Check_Range(1,NAME_LIM, int(strlen(first_name))))){
         cout << "The name you enter was incorrect, please try again:" << endl;
         msg01();
         cin >> first_name;
@@ -30,7 +30,7 @@ void User::Set_Name() {
     cout << "Enter your Last name" << endl;
     msg01();
     cin >> last_name;
-    while (!Check_Letter(last_name) || !(Check_Range(1,NAME_LIM, int(strlen(last_name))))) {
+    while (!Check_Letters(last_name) || !(Check_Range(1,NAME_LIM, int(strlen(last_name))))) {
         cout << "The name you enter was incorrect, please try again:" << endl;
         msg01();
         cin >> last_name;
