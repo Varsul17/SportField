@@ -15,7 +15,7 @@
 #define ADDRESS_LIM 30
 #define PUP_LIM 10
 #define PASS_MIN 6
-#define Max 100
+#define MAX 100
 
 using namespace std;
 
@@ -28,12 +28,13 @@ public:
     static bool Check_Lower(char ch){return ((ch >= 'a')&&(ch <= 'z'));}// Checked
     static bool Check_Number(char ch){return ((ch >= '1') && (ch <= '9'));}
     static bool Check_Let(char ch){return Check_Lower(ch) || Check_Upper(ch);};
-    static bool Check_Letters(char *); // Checked
+    static bool Check_Name(char *); // Checked
     static char Lower_To_Upper(char ch){return ch - 'a' + 'A';}
     void Set_Name(); //Checked
     void Set_Gender(); //Checked
     bool Set_Email();
-    static void msg01(){cout << "Notice: name can only contain letters and be up to 20 characters}" << endl;} //Checked
+    static void msg01(){cout << "Notice: name can only contain letters and be up to 20 characters" << endl;}//Checked
+    static void msg02(){cout << "Notice: Email must be in the format: example@company.ending and up to 35 characters"<< endl;}
 
 protected:
     long ID;
