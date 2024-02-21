@@ -6,6 +6,9 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(SportField
+        field.cpp
+        field.h
         Date.h
         User.cpp
-        User.h)
+        User.h
+        main.cpp)

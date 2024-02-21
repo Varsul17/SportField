@@ -22,11 +22,12 @@ using namespace std;
 class User {
 public:
     static char* Set_String(char*) ; // Checked
-    bool Empty_Line(char let);
+    static bool Empty_Line(char let);
     static bool Check_Range(int start, int end, int num){return ((num >= start)&&(num <= end));} // Checked
     static bool Check_Upper(char ch){return ((ch >= 'A')&&(ch <= 'Z'));} // Checked
     static bool Check_Lower(char ch){return ((ch >= 'a')&&(ch <= 'z'));}// Checked
-    static bool Check_Let()
+    static bool Check_Number(char ch){return ((ch >= '1') && (ch <= '9'));}
+    static bool Check_Let(char ch){return Check_Lower(ch) || Check_Upper(ch);};
     static bool Check_Letters(char *); // Checked
     static char Lower_To_Upper(char ch){return ch - 'a' + 'A';}
     void Set_Name(); //Checked

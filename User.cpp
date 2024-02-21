@@ -77,10 +77,10 @@ bool User::Set_Email() {
     if (Empty_Line(let)) // If the user typed empty line the func return false.
         return false;
     while ((let != AT_SIGN) && (let != ENTER)) { // We keep checking char until we reach enter or at sign
-        if ((IsLetter(let) == NOT_LET) && (!IsNumber(let))) // We check if the chars are not letters or numbers.
+        if ((!Check_Let(let)) && (!Check_Number(let))) // We check if the chars are not letters or numbers.
             if ((let != DOT)&& (let != UNDERLINE)) { // We also check if the chars are not dot or underline.
                 cout << "You Entered incorrect char" << endl;
-                Empty(); // We emtpy the rest of the chars.
+                while(getchar() != ENTER); // We emtpy the rest of the chars.
                 return false;
             } // second if
         let = (char)(getchar());
@@ -92,8 +92,8 @@ bool User::Set_Email() {
     bool is_dot = false; // We creat flag to check if the user print dot after the @.
     let = (char)(getchar());
     while ((let != SPACE)&&(let != ENTER)) { // We keep checking chars until we receive space (' ') or enter.
-        if ((IsLetter(let) == NOT_LET) && (!IsNumber(let)) && (let != DOT) && (let != UNDERLINE)){ // If The chars are not letters, numbers, dot or underline.
-            Empty(); // We emtpy the rest of the chars.
+        if ((!Check_Let(let)) && (!Check_Number(let)) && (let != DOT) && (let != UNDERLINE)){ // If The chars are not letters, numbers, dot or underline.
+            while(getchar() != ENTER); // We emtpy the rest of the chars.
             cout << "You Entered incorrect char" << endl;
             return false;
         } // if
@@ -108,7 +108,7 @@ bool User::Set_Email() {
     if (let != SPACE) // If the user didn't type space after the email a message is sent.
         cout << "You didn't wroth space after your email (there is no need to write again)" << endl;
     else
-        Empty(); // We empty the Enter.
+        while(getchar() != ENTER); // We empty the Enter.
     return true;
 } // func
 
