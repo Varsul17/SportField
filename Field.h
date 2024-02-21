@@ -7,27 +7,32 @@
 using namespace std;
 #include <iostream>
 #include <cstring>
+#include "Time.h"
 
-//class Field {
-//protected:
-//    char* nameOfField;
-//    int sizeGolf,int sizeSoccer,int sizeBasketball, numOfField;
-//
-//public:
-//    Field():nameOfField(nullptr),sizeGolf(0),sizeSoccer(0),sizeSoccer(0),sizeBasketBall(0),numOfField(0){}
-//    Field(char* nameOfField,int sizeGolf,int sizeSoccer,int sizeBasketball,numOfField);
-//    Field(const Field &other);
-//    virtual ~Field(){delete[] nameOfField;}
-//    virtual void printDetails();
-//    char* getNameOfField()const{return nameOfField;}
-//    int getSizeGolf()const{return sizeGolf;}
-//    int getSizeSoccer()const{return sizeSoccer;}
-//    int getSizeBasketball()const{return sizeBasketball;}
-//    int getNumOfField()const{return numOfField;}
-//
-//
-//
-//};
+class Field {
+protected:
+    char* nameOfField ;
+    char* location;
+    char* typeOfField;
+    int length, width;
+    float pricePerHour;
+
+public:
+    Field():nameOfField(nullptr),location(nullptr),typeOfField(nullptr),length(0),width(0),pricePerHour(0.0){}
+    Field(char* nameOfField,char* location,char* typeOfField,int length, int width,float pricePerHour);
+    Field(const Field &other);
+    virtual ~Field(){delete[] nameOfField;}
+    virtual void printDetails();
+    char* getNameOfField()const{return nameOfField;}
+    char* getLocation()const{return location;}
+    char* getTypeOfField()const{return typeOfField;}
+    int getLength()const{return length;}
+    int getWidth()const{return width;}
+    float getPricePerHour()const{return pricePerHour;}
+
+
+
+};
 
 
 #endif //USER_H_FIELD_H
