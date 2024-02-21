@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Artiom\CLionProjects\SportField
+CMAKE_SOURCE_DIR = C:\Users\user\Desktop\SportField
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Artiom\CLionProjects\SportField\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\user\Desktop\SportField\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\Artiom\CLionProjects\SportField\cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"D:\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"D:\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Artiom\CLionProjects\SportField\cmake-build-debug\CMakeFiles C:\Users\Artiom\CLionProjects\SportField\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\user\Desktop\SportField\cmake-build-debug\CMakeFiles C:\Users\user\Desktop\SportField\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Artiom\CLionProjects\SportField\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\user\Desktop\SportField\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,30 @@ SportField/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/build
 .PHONY : SportField/fast
 
+Branch.obj: Branch.cpp.obj
+.PHONY : Branch.obj
+
+# target to build an object file
+Branch.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Branch.cpp.obj
+.PHONY : Branch.cpp.obj
+
+Branch.i: Branch.cpp.i
+.PHONY : Branch.i
+
+# target to preprocess a source file
+Branch.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Branch.cpp.i
+.PHONY : Branch.cpp.i
+
+Branch.s: Branch.cpp.s
+.PHONY : Branch.s
+
+# target to generate assembly for a file
+Branch.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Branch.cpp.s
+.PHONY : Branch.cpp.s
+
 Field.obj: Field.cpp.obj
 .PHONY : Field.obj
 
@@ -151,6 +175,54 @@ Field.s: Field.cpp.s
 Field.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Field.cpp.s
 .PHONY : Field.cpp.s
+
+Menu.obj: Menu.cpp.obj
+.PHONY : Menu.obj
+
+# target to build an object file
+Menu.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Menu.cpp.obj
+.PHONY : Menu.cpp.obj
+
+Menu.i: Menu.cpp.i
+.PHONY : Menu.i
+
+# target to preprocess a source file
+Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Menu.cpp.i
+.PHONY : Menu.cpp.i
+
+Menu.s: Menu.cpp.s
+.PHONY : Menu.s
+
+# target to generate assembly for a file
+Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Menu.cpp.s
+.PHONY : Menu.cpp.s
+
+Time.obj: Time.cpp.obj
+.PHONY : Time.obj
+
+# target to build an object file
+Time.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Time.cpp.obj
+.PHONY : Time.cpp.obj
+
+Time.i: Time.cpp.i
+.PHONY : Time.i
+
+# target to preprocess a source file
+Time.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Time.cpp.i
+.PHONY : Time.cpp.i
+
+Time.s: Time.cpp.s
+.PHONY : Time.s
+
+# target to generate assembly for a file
+Time.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Time.cpp.s
+.PHONY : Time.cpp.s
 
 User.obj: User.cpp.obj
 .PHONY : User.obj
@@ -209,9 +281,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... SportField
+	@echo ... Branch.obj
+	@echo ... Branch.i
+	@echo ... Branch.s
 	@echo ... Field.obj
 	@echo ... Field.i
 	@echo ... Field.s
+	@echo ... Menu.obj
+	@echo ... Menu.i
+	@echo ... Menu.s
+	@echo ... Time.obj
+	@echo ... Time.i
+	@echo ... Time.s
 	@echo ... User.obj
 	@echo ... User.i
 	@echo ... User.s
