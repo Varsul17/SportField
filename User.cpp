@@ -198,7 +198,7 @@ bool User::Set_Username() {
 
 bool User::Set_Password() {
     char pass_check[MAX];
-    cout << "Select username:" << endl;
+    cout << "Select password:" << endl;
     msg05();
     cin.getline(pass_check, MAX);
     int len = int(strlen(pass_check));
@@ -206,13 +206,13 @@ bool User::Set_Password() {
     if (Blank_Line(len))
         return false;
     if (len > PUP_LIM || len < PASS_MIN) {
-        cout << "You Enterd incorrect number of chars, please try again." << endl;
+        cout << "You entered incorrect number of chars, please try again." << endl;
         return false;
     }
     for (int i = 0; i < len; ++i) {
         if (Check_Number(pass_check[i]))
             ++num;
-        else if(Check_Upper(pass_check[i]))
+        else if (Check_Upper(pass_check[i]))
             ++upper;
         else if (Check_Lower(pass_check[i]))
             ++lower;
@@ -220,9 +220,21 @@ bool User::Set_Password() {
             cout << "You Entered incorrect char, please try again" << endl;
             return false;
         }
-        this->password = Set_String(pass_check);
-        return true;
     }
-
+    if (!upper) {
+        cout << "You didn't entered uppercase letter, please try again." << endl;
+        return false;
+    }
+    if (!lower) {
+        cout << "You didn't entered lowercase letter, please try again." << endl;
+        return false;
+    }
+    if (!num) {
+        cout << "You didn't entered a number, please try again." << endl;
+        return false;
+    }
+    //this->password = Set_String(pass_check);
+    return true;
 }
+
 
