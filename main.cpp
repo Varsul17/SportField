@@ -5,6 +5,6 @@
 
 int main() {
     User check;
-    while(!check.Set_ID());
+    while(!check.Set_Username());
     return 0;
 }
