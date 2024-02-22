@@ -12,12 +12,13 @@ Menu::Menu() {
 
     do {
         std::cout << "Hello! Welcome to Sammy Fitness.\n"
-                     " new user? Or a member of our system?\n"
-                     " For new user tap 1.\n"
-                     " Existing user tap 2 : \n"
+                     "new user? Or a member of our system?\n"
+                     "For new user tap 1: \n"
+                     "Interested in leaving our family? tap 2: \n"
+                     "Editing personal details Tap 3: \n"
                   << std::endl;
         std::cin >> flag;
-    }while(flag != 1 && flag != 2);
+    }while(flag != 1 && flag != 2 && flag != 3);
 
     if (flag ==1)
     {
@@ -60,9 +61,9 @@ Menu::Menu() {
     {
         removeData();
     }
-    else
+    else if (flag == 3)
     {
-
+        editData();
     }
 
 
@@ -160,3 +161,109 @@ void Menu::removeData()
         std::cout << std::endl;
     }
 }
+
+void Menu::editData()
+{
+    bool flag = false;
+    int lineNumber;
+    std::cout << "To edit your information in the system, enter your id number: \n";
+    std::cin >> tempId;
+
+    std::cout << "Enter your password: \n";
+    std::cin >> tempPassword;
+
+    for (int i = 0; i < counter; ++i)
+    {
+        if (strcmp(tempId,matrix[i][0]) == 0)
+        {
+            if (strcmp(tempPassword,matrix[i][6]) == 0)
+            {
+                flag = true;
+                lineNumber = i;
+                break;
+            }
+        }
+    }
+
+    if (flag)
+    {
+        int choice;
+
+        do {
+
+        std::cout <<"Which of the options do you want to change?\n"
+                    "Changing the phone number press 1\n"
+                    "Changing the username, press 2\n"
+                    "Changing the password, press 3\n"
+                    "Changing the address press 4\n";
+        std::cin >> choice;
+
+            if (choice < 1 || choice > 4)
+                std::cout << "Wrong choice. Please select an option from the menu.";
+
+        } while (choice != 1 && choice != 2 && choice != 3 && choice != 4);
+
+        switch (choice){
+
+            case 1:
+            {
+                std::cout << "You chose to change the phone number. Please enter the new number: \n";
+                std::cin >> tempPhone;
+                //index = 4
+                editDateSupport(4,tempPhone,lineNumber);
+                print();
+                break;
+            }
+            case 2:
+            {
+                std::cout << "You chose to change the username. Please enter the new username: \n";
+                std::cin >> tempUserName;
+                //index = 5
+                editDateSupport(5,tempUserName,lineNumber);
+                break;
+            }
+            case 3:
+            {
+                std::cout << "You have chosen to change the password. Please enter the new password: \n";
+                std::cin >> tempPassword;
+                //index = 6
+                editDateSupport(6,tempPassword,lineNumber);
+                break;
+            }
+            case 4:
+            {
+                std::cout << "You have chosen to change the address. Please enter the new address: \n";
+                std::cin >> tempAddress;
+                //index = 7
+                editDateSupport(7,tempAddress,lineNumber);
+                break;
+            }
+            default:
+            {
+                std::cout << "error: The submenu does not support your selection!\n";
+                break;
+            }
+        }
+    }
+}
+
+void Menu::editDateSupport(int index, char *str, int lineNumber)
+{
+    delete[] matrix[lineNumber][index];
+    matrix[lineNumber][index] = new char [strlen(str)+1];
+    strcpy(matrix[lineNumber][index],str);
+}
+
+void Menu::print()
+{
+    for (int i = 0; i < counter; ++i)
+    {
+        for (int j = 0; j < NumberOfColl; ++j)
+        {
+            std::cout << matrix[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
+

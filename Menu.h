@@ -28,6 +28,9 @@ public:
                  char* userName,char* password,char* address,char* vip, char* gender);
 
     void removeData();
+    void editData();
+    void editDateSupport(int index, char* str, int line);
+    void print();
 };
 
 
