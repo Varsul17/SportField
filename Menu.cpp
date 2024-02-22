@@ -58,7 +58,7 @@ Menu::Menu() {
     }
     else if (flag == 2)
     {
-
+        removeData();
     }
     else
     {
@@ -132,6 +132,7 @@ void Menu::addData(char* id, char* name, char* lastName, char* Birthday,char* ph
 
 void Menu::removeData()
 {
+    bool flag = false;
     std::cout << "To stop the subscription, enter your ID card: " << std::endl;
     std::cin >> tempId;
     for (int i = 0; i < counter; ++i)
@@ -140,8 +141,22 @@ void Menu::removeData()
         {
             std::cout << matrix[i][1] << " " << matrix[i][2] << " We are sorry to hear about the cancellation of your subscription.\n"
                                                                 " We will always be happy to welcome you back.\n Thanks and all the best!\n";
-            strcpy(matrix[i][0],"$");
+            for (int j = 0; j < NumberOfColl; ++j)
+            {
+                strcpy(matrix[i][j],"$");
+                flag = true;
+            }
         }
+        if (flag)
+            break;
     }
 
+    for (int i = 0; i < counter; ++i)
+    {
+        for (int j = 0; j < NumberOfColl; ++j)
+        {
+            std::cout << matrix[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
 }

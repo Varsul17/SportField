@@ -10,7 +10,7 @@
 
 DataBase::DataBase()
 {
-    const std::string FILE_PATH = "C:\\Users\\segev\\CLionProjects\\work 1 principles fix\\players list";
+    const std::string FILE_PATH = "C:\\Users\\segev\\CLionProjects\\SportField\\players list";
     {
         mainDate.open(FILE_PATH, std::ios::in);
 
@@ -68,11 +68,10 @@ DataBase::DataBase()
     mainDate.close();
 }
 
-DataBase::~DataBase()
-{
-    std::cout << "detractor"<< std::endl;
+DataBase::~DataBase() {
+    std::cout << "detractor" << std::endl;
 
-    const std::string FILE_PATH = "C:\\Users\\segev\\CLionProjects\\work 1 principles fix\\players list";
+    const std::string FILE_PATH = "C:\\Users\\segev\\CLionProjects\\SportField\\players list";
     std::ofstream ofs(FILE_PATH, std::ofstream::out | std::ofstream::trunc);
 
     if (!ofs.is_open()) {
@@ -80,20 +79,23 @@ DataBase::~DataBase()
         return;
     }
 
-    for (int i = 0; i < counter; ++i)
-    {
-        for (int j = 0; j < NumberOfColl; ++j)
-        {
-            ofs << matrix[i][j] << ' ';
+    for (int i = 0; i < counter; ++i) {
+        bool hasData = false;
+        for (int j = 0; j < NumberOfColl; ++j) {
+            if (strcmp(matrix[i][j], "$") != 0) {
+                ofs << matrix[i][j] << ' ';
+                hasData = true;
+            }
         }
-        ofs << std::endl;
+        if (hasData) {
+            ofs << std::endl;
+        }
     }
+
     mainDate.close();
 
-    for (int i = 0; i < counter; ++i)
-    {
-        for (int j = 0; j < NumberOfColl; ++j)
-        {
+    for (int i = 0; i < counter; ++i) {
+        for (int j = 0; j < NumberOfColl; ++j) {
             delete[] matrix[i][j];
         }
         delete[] matrix[i];

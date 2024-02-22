@@ -152,6 +152,30 @@ Branch.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Branch.cpp.s
 .PHONY : Branch.cpp.s
 
+DataBase.obj: DataBase.cpp.obj
+.PHONY : DataBase.obj
+
+# target to build an object file
+DataBase.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/DataBase.cpp.obj
+.PHONY : DataBase.cpp.obj
+
+DataBase.i: DataBase.cpp.i
+.PHONY : DataBase.i
+
+# target to preprocess a source file
+DataBase.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/DataBase.cpp.i
+.PHONY : DataBase.cpp.i
+
+DataBase.s: DataBase.cpp.s
+.PHONY : DataBase.s
+
+# target to generate assembly for a file
+DataBase.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/DataBase.cpp.s
+.PHONY : DataBase.cpp.s
+
 Field.obj: Field.cpp.obj
 .PHONY : Field.obj
 
@@ -284,6 +308,9 @@ help:
 	@echo ... Branch.obj
 	@echo ... Branch.i
 	@echo ... Branch.s
+	@echo ... DataBase.obj
+	@echo ... DataBase.i
+	@echo ... DataBase.s
 	@echo ... Field.obj
 	@echo ... Field.i
 	@echo ... Field.s

@@ -1,10 +1,11 @@
 #include <iostream>
 #include <cstring>
 #include  "User.h"
+#include "Menu.h"
+
 
 
 int main() {
-    User check;
-    while(!check.Set_ID());
+    Menu M;
     return 0;
 }

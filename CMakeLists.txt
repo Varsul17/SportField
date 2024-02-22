@@ -17,4 +17,5 @@ add_executable(SportField
         Menu.h
         Time.cpp
         Time.h
-        main.cpp)
+        main.cpp
+        DataBase.cpp)
