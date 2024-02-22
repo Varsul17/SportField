@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/SportField.dir/Branch.cpp.obj"
   "CMakeFiles/SportField.dir/Branch.cpp.obj.d"
+  "CMakeFiles/SportField.dir/DataBase.cpp.obj"
+  "CMakeFiles/SportField.dir/DataBase.cpp.obj.d"
   "CMakeFiles/SportField.dir/Field.cpp.obj"
   "CMakeFiles/SportField.dir/Field.cpp.obj.d"
   "CMakeFiles/SportField.dir/Menu.cpp.obj"
