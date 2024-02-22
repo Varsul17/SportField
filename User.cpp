@@ -1,5 +1,14 @@
 #include "User.h"
 
+
+bool User::Blank_Line(int len) {
+    if (len == 0) {
+        cout << "You entered a blank line, please try again." << endl;
+        return true;
+    }
+    return false;
+}
+
 char *User::Set_String(char * str) {
     char *res = new char[strlen(str) + 1];
     strcpy(res, str);
@@ -19,28 +28,26 @@ bool User::Check_Name(char *str) {
 
 
 void User::Set_Name() { //need to add blank line.
-    char first_name[MAX];
-    char last_name[MAX];
+    char f_name[MAX];
+    char l_name[MAX];
     cout << "Enter your first name: " << endl;
     msg01();
-    cin >> first_name;
-    while (!Check_Name(first_name) || !(Check_Range(1, NAME_LIM, int(strlen(first_name))))) {
+    cin >> f_name;
+    while (!Check_Name(f_name) || !(Check_Range(1, NAME_LIM, int(strlen(first_name))))) {
         cout << "The name you enter was incorrect, please try again:" << endl;
         msg01();
-        cin >> first_name;
+        cin >> f_name;
     }
     cout << "Enter your Last name" << endl;
     msg01();
-    cin >> last_name;
-    while (!Check_Name(last_name) || !(Check_Range(1, NAME_LIM, int(strlen(last_name))))) {
+    cin >> l_name;
+    while (!Check_Name(l_name) || !(Check_Range(1, NAME_LIM, int(strlen(last_name))))) {
         cout << "The name you enter was incorrect, please try again:" << endl;
         msg01();
-        cin >> last_name;
+        cin >> l_name;
     }
-    first_name[strlen(first_name)] = ' ';
-    strcat(first_name, last_name);
-    cout << first_name;
-    this->name = Set_String(first_name);
+    this->first_name = Set_String(f_name);
+    this->last_name = Set_String(l_name);
 }
 
 
@@ -74,28 +81,25 @@ void User::Set_Gender() {
  *      - The mail must have at sign (@).
  *      - The mail must have a dot after the at sign.
  *      The function only return true if all the rules are true, otherwise false.    */
-bool User::Set_Email() {
-    char email[MAX];
+bool User::Set_Email() { // Add Not only @.
+    char email_check[MAX];
     cout << "Enter an email:" << endl;
     msg02();
-    cin.getline(email, MAX);
-    int len = int(strlen(email));
-    if (len > 35) {
+    cin.getline(email_check, MAX);
+    int len = int(strlen(email_check));
+    if (len > EMAIL_LIM) {
         cout << "The Email is to long, please try again." << endl;
         return false;
     }
-    if (len == 0) {
-        cout << "You entered a blank line, please try again." << endl;
+    if (Blank_Line(len))
         return false;
-    }
     int index_dot = -1, index_at_sign = -1;;
-    for (int i = 0; i < strlen(email); ++i) {
-        if (email[i] == AT_SIGN)
+    for (int i = 0; i < len; ++i) {
+        if (email_check[i] == AT_SIGN)
             index_at_sign = i;
-        else if (email[i] == DOT)
+        else if (email_check[i] == DOT)
             index_dot = i;
-        else if (!Check_Let(email[i]) && (!Check_Number(email[i]) && (email[i] != UNDERLINE))) {
-            cout << email[i] << endl;
+        else if (!Check_Let(email_check[i]) && (!Check_Number(email_check[i]) && (email_check[i] != UNDERLINE))) {
             cout << "You Entered incorrect char, please try again." << endl;
             return false;
         }
@@ -116,12 +120,28 @@ bool User::Set_Email() {
         cout << "An email cannot end in dot, an ending must be added, please try again." << endl;
         return false;
     }
-    cout << "you did it! " << endl;
-    this->email = Set_String(email);
+    this->email = Set_String(email_check);
     return true;
 }
 
 
-bool User::Set_ID() {
-    cout << "Enter an ID, must be 9 digits"
+bool User::Set_ID() { // Maybe add an option to checked valid ID.
+    char ID_check[MAX];
+    cout << "Enter an ID, must be only 9 digits" << endl;
+    cin.getline(ID_check, MAX);
+    int len = int(strlen(ID_check));
+    if (Blank_Line(len))
+        return false;
+    if (len != ID_LIM) {
+        cout << "You enter incorrect number of digits, please try again." << endl;
+        return false;
+    }
+    for (int i = 0; i < len; ++i) {
+        if (!Check_Number(ID_check[i])) {
+            cout << "You entered incorrect char, please try again." << endl;
+            return false;
+        }
+    }
+    this->ID = Set_String(ID_check);
+    return true;
 }
