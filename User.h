@@ -2,6 +2,7 @@
 #define FIELDSPROJECT_USER_H
 #include <iostream>
 #include <cstring>
+#include <string>
 #include "Date.h"
 #define AT_SIGN '@'
 #define ASTERISK '*'
@@ -21,20 +22,20 @@ using namespace std;
 
 class User {
 public:
-    static char* Set_String(char*) ; // Checked
-    static bool Empty_Line(char let);
     static bool Check_Range(int start, int end, int num){return ((num >= start)&&(num <= end));} // Checked
     static bool Check_Upper(char ch){return ((ch >= 'A')&&(ch <= 'Z'));} // Checked
-    static bool Check_Lower(char ch){return ((ch >= 'a')&&(ch <= 'z'));}// Checked
-    static bool Check_Number(char ch){return ((ch >= '1') && (ch <= '9'));}
-    static bool Check_Let(char ch){return Check_Lower(ch) || Check_Upper(ch);};
+    static bool Check_Lower(char ch){return ((ch >= 'a')&&(ch <= 'z'));} // Checked
+    static char Lower_To_Upper(char ch){return ch - 'a' + 'A';} // Checked
+    static bool Check_Number(char ch){return ((ch >= '0') && (ch <= '9'));} // Checked
+    static bool Check_Let(char ch){return Check_Lower(ch) || Check_Upper(ch);}; // Checked
     static bool Check_Name(char *); // Checked
-    static char Lower_To_Upper(char ch){return ch - 'a' + 'A';}
+    static char* Set_String(char*) ; // Checked
     void Set_Name(); //Checked
     void Set_Gender(); //Checked
-    bool Set_Email();
+    bool Set_Email(); // Checked
+    bool Set_ID();
     static void msg01(){cout << "Notice: name can only contain letters and be up to 20 characters" << endl;}//Checked
-    static void msg02(){cout << "Notice: Email must be in the format: example@company.ending and up to 35 characters"<< endl;}
+    static void msg02(){cout << "Notice: Email must be in the format: example@company.ending and up to 35 characters"<< endl;} // Checked
 
 protected:
     long ID;

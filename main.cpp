@@ -7,11 +7,10 @@ int main() {
     User check;
 //    check.Set_Name();
 //    check.Set_Gender();
-    cout << "Enter an Email" << endl;
-    bool valid = false;
-    while (!valid){
+    bool flag = false;
+    while (!flag){
         if (check.Set_Email())
-            valid = true;
+            flag = true;
     }
     return 0;
 }
