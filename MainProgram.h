@@ -6,13 +6,18 @@
 #define SPORTFIELD_MAINPROGRAM_H
 #include <iostream>
 #include "User.h"
+#include "Player.h"
+#include "DataBase.h"
 
 
-class MainProgram {
+
+class MainProgram : public DataBase{
 private:
 
 public:
     MainProgram();
+
+    void addPlayer(Player playerToAdd);
 
 };
 

@@ -3,6 +3,7 @@
 //
 
 #include "MainProgram.h"
+#define NumberOfColl 9
 
 MainProgram::MainProgram()
 {
@@ -45,8 +46,10 @@ MainProgram::MainProgram()
                     std::cout << "Welcome !\n"
                                  "In order to complete your registration as a new member in our system,\n"
                                  "we need some additional details from you.\n";
-                    User u;
+                    Player player;
+
                     break;
+
                 }
                 case 2:
                 {
@@ -64,8 +67,65 @@ MainProgram::MainProgram()
             break;
         }
     }
+}
+
+void MainProgram::addPlayer(Player playerToAdd)
+{
+    char*** tempMatrix = new char ** [counter+1];
+
+    for (int i = 0; i < counter; ++i)
+    {
+        tempMatrix[i] = new char*[NumberOfColl];
+
+        for (int j = 0; j < NumberOfColl; ++j)
+        {
+            tempMatrix[i][j] = new char[strlen(matrix[i][j]) + 1];
+            strcpy(tempMatrix[i][j], matrix[i][j]);
+        }
+    }
+    std::cout <<counter << std::endl;
+
+    tempMatrix[counter] = new char *[NumberOfColl];
+
+    tempMatrix[counter][0] = new char[strlen(playerToAdd.Get_ID()) + 1];
+    strcpy(tempMatrix[counter][0], playerToAdd.Get_ID());
+
+    tempMatrix[counter][1] = new char[strlen(playerToAdd.Get_First_Name()) + 1];
+    strcpy(tempMatrix[counter][1], playerToAdd.Get_First_Name());
+
+    tempMatrix[counter][2] = new char[strlen(playerToAdd.Get_Last_Name()) + 1];
+    strcpy(tempMatrix[counter][2], playerToAdd.Get_Last_Name());
+
+    tempMatrix[counter][3] = new char[strlen(playerToAdd.Get_Bithday()) + 1];
+    strcpy(tempMatrix[counter][3],playerToAdd.Get_Bithday() );
+
+    tempMatrix[counter][4] = new char[strlen(playerToAdd.Get_Phone()) + 1];
+    strcpy(tempMatrix[counter][4], playerToAdd.Get_Phone());
+
+    tempMatrix[counter][5] = new char[strlen(playerToAdd.Get_Username()) + 1];
+    strcpy(tempMatrix[counter][5], playerToAdd.Get_Username());
+
+    tempMatrix[counter][6] = new char[strlen(playerToAdd.Get_Password()) + 1];
+    strcpy(tempMatrix[counter][6], playerToAdd.Get_Password());
+
+    tempMatrix[counter][7] = new char[strlen(playerToAdd.Get_Address()) + 1];
+    strcpy(tempMatrix[counter][7], playerToAdd.Get_Address());
+
+    tempMatrix[counter][8] = new char[strlen(playerToAdd.Get_VIp()) + 1];
+    strcpy(tempMatrix[counter][8], playerToAdd.Get_VIp());
+
+    tempMatrix[counter][9] = new char[strlen(playerToAdd.Get_Gender()) + 1];
+    strcpy(tempMatrix[counter][9], playerToAdd.Get_Gender());
 
 
-
-
+    for (int i = 0; i < counter+1; ++i)
+    {
+        for (int j = 0; j < NumberOfColl; ++j)
+        {
+            std::cout << tempMatrix[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+    counter++;
+    matrix = tempMatrix;
 }
