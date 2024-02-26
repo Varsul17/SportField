@@ -51,7 +51,7 @@ public:
     char* Get_Username() const {return username;}
     char* Get_Password() const {return password;}
     char* Get_Address() const {return address;}
-    char* Get_bithday() const {return birthday}
+    char* Get_Bithday() const {return birthday;}
 
 protected:
     char *ID;
@@ -64,7 +64,7 @@ protected:
     char *password;
     char *address;
     //   Date birthday;
-    char* date;
+    char* Birthday;
 
 public:
     User() {}
