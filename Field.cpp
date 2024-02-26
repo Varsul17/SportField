@@ -30,14 +30,26 @@ void Field::writeScheduleToFile()
         cout << "Error opening schedule file." << endl;
         return;
     }
-    scheduleFile << "Field Name: " << nameOfField << endl;
-    scheduleFile << "Location: " << location << endl;
-    scheduleFile << "Type of Field: " << typeOfField << endl;
-    scheduleFile << "Available Time Slots: " << endl;
+//    scheduleFile << "Field Name: " << nameOfField << endl;
+//    scheduleFile << "Location: " << location << endl;
+//    scheduleFile << "Type of Field: " << typeOfField << endl;
+//    scheduleFile << "Available Time Slots: " << endl;
+//
+//    for (int hour = 8; hour <= 22; ++hour) {
+//        scheduleFile << hour << ":00 - " << hour + 1 << ":00: " << endl;
+//        scheduleFile << "Available "<<endl;
+//    }
+    scheduleFile << "+---------------------------------------+\n";
+    scheduleFile << "| Field Name | Location | Type of Field |\n";
+    scheduleFile << "+---------------------------------------+\n";
+    scheduleFile << "| " << setw(11) << nameOfField << " | " << setw(8) << location << " | " << setw(13) << typeOfField << " |\n";
+    scheduleFile << "+---------------------------------------+\n";
+    scheduleFile << "| Available Time Slots                 |\n";
+    scheduleFile << "+---------------------------------------+\n";
 
+    // Print time slots
     for (int hour = 8; hour <= 22; ++hour) {
-        scheduleFile << hour << ":00 - " << hour + 1 << ":00: " << endl;
-        scheduleFile << "Available "<<endl;
+        scheduleFile << "| " << setw(2) << hour << ":00 - " << setw(2) << hour + 1 << ":00 | Available       |\n";
     }
     scheduleFile << endl;
     scheduleFile.close();
