@@ -68,7 +68,7 @@ void User::Set_Gender() {
     } while (error);
     if (Check_Lower(gend[0]))
         gend[0] = Lower_To_Upper(gend[0]);
-    this->gender = gend[0];
+    this->gender = gend;
 }
 
 
