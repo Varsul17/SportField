@@ -29,7 +29,8 @@ public:
     static bool Blank_Line(int len); //Checked
     static bool Check_Name(char *); // Checked
     static char *Set_String(char *); // Checked
-    char* Set_address(){this->address = "Ashdod";}
+    void Set_address(){address = new char[strlen("ashdod")];
+    address = "ashdod";}
     void Set_Name(); //Checked
     void Set_Gender(); //Checked
     bool Set_Email(); // Checked
@@ -37,7 +38,7 @@ public:
     bool Set_Phone(); //Checked
     bool Set_Username(); //Checked
     bool Set_Password(); // Checked
-    bool Set_Birthday();
+    void Set_Birthday();
     static void msg01() { cout << "Notice: Name can only contain letters and be up to 20 characters" << endl; }//Checked
     static void msg02() {cout << "Notice: Email must be in the format: example@company.ending and up to 35 characters" << endl;} // Checked
     static void msg03() {cout << "Notice: Phone number must start with 05, and be only digits" << endl;}
@@ -76,7 +77,8 @@ public:
             while(!Set_Phone());
             while(!Set_Username());
             while(!Set_Password());
-            Set_address();}
+            Set_address();
+            Set_Birthday();}
 
     User(char *n_ID, char *f_name, char *l_name, char* n_gender, char *n_email, char *n_phone, char *user, char *pass,
          char *add, char* birth) :

@@ -1,2 +1,2 @@
 CMakeFiles/SportField.dir/Branch.cpp.obj: \
- C:\Users\Artiom\Desktop\SportField\Branch.cpp
+ C:\Users\segev\CLionProjects\SportField\Branch.cpp

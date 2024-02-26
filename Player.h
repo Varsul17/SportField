@@ -11,6 +11,7 @@ public :
 
     void Set_VIP(){this->VIP = "No";}
     char* Get_VIp(){return VIP;}
+    //GAL
 };
 
 

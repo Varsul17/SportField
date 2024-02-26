@@ -12,7 +12,7 @@ int main() {
 //      cout << "checked" <<endl;
 //      check.Set_Name();
 //    while(!check.Set_Password());
-     MainProgram W;
+//     MainProgram W;
 
 
     return 0;

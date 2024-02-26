@@ -71,7 +71,8 @@ void User::Set_Gender() {
     } while (error);
     if (Check_Lower(gend[0]))
         gend[0] = Lower_To_Upper(gend[0]);
-    this->gender = gend;
+    this->gender = new char [1];
+    strcpy(this->gender, gend);
 }
 
 
@@ -238,7 +239,7 @@ bool User::Check_Date(char * str){
 }
 
 
-bool User::Set_Birthday() {
+void User::Set_Birthday() {
 //    char day[MAX], month[MAX], year[MAX];
 //    cout << "Enter the year" << endl;
 //    cin >> year;
@@ -247,5 +248,6 @@ bool User::Set_Birthday() {
 //    cout << "Enter the day" << endl;
 //    cin >> day;
 //    if (Check_Number())
-    this->birthday= "17/03/19988";
+    this->birthday = new char[strlen("17/03/1998")];
+    this->birthday = "17/03/1998";
 }
