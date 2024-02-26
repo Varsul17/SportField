@@ -234,5 +234,5 @@ bool User::Set_Birthday() {
     cin >> month;
     cout << "Enter the day" << endl;
     cin >> day;
-    if (month > 12)
+//    if (month > 12)
 }
