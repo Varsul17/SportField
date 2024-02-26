@@ -57,20 +57,20 @@ protected:
     char *ID;
     char *first_name;
     char *last_name;
-    char gender;
+    char *gender;
     char *email;
     char *phone;
     char *username;
     char *password;
     char *address;
     //   Date birthday;
-    char* Birthday;
+    char* birthday;
 
 public:
     User() {}
 
     User(char *n_ID, char *f_name, char *l_name, char n_gender, char *n_email, char *n_phone, char *user, char *pass,
-         char *add, Date birth) :
+         char *add, char* birth) :
             ID(n_ID), first_name(f_name), last_name(l_name), gender(n_gender), email(n_email), phone(n_phone),
             username(user), password(pass), address(add), birthday(birth) {}
 

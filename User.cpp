@@ -227,5 +227,12 @@ bool User::Set_Password() {
 
 
 bool User::Set_Birthday() {
-
+    char day[MAX], month[MAX], year[MAX];
+    cout << "Enter the year" << endl;
+    cin >> year;
+    cout << "Enter the month" << endl;
+    cin >> month;
+    cout << "Enter the day" << endl;
+    cin >> day;
+    if (month > 12)
 }
