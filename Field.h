@@ -24,6 +24,7 @@ public:
     virtual ~Field(){delete[] nameOfField;}
     virtual void printDetails();
     char* getNameOfField()const{return nameOfField;}
+    void writeScheduleToFile();
     char* getLocation()const{return location;}
     char* getTypeOfField()const{return typeOfField;}
     int getLength()const{return length;}

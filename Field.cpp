@@ -2,6 +2,7 @@
 // Created by Artiom on 19/02/2024.
 //
 
+#include <fstream>
 #include "Field.h"
 
 Field::Field(char* nameOfField,char* location,char* typeOfField,int length, int width,float pricePerHour)
@@ -18,6 +19,28 @@ Field::Field(char* nameOfField,char* location,char* typeOfField,int length, int 
     this->width=width;
     this->length=length;
     this->pricePerHour=pricePerHour;
+}
+
+
+void Field::writeScheduleToFile()
+{
+    const ::string FILE_PATH = "C:\\Users\\Artiom\\Desktop\\SportField\\schedule list";
+    ofstream scheduleFile(FILE_PATH, std::ios::app);
+    if (!scheduleFile.is_open()) {
+        cout << "Error opening schedule file." << endl;
+        return;
+    }
+    scheduleFile << "Field Name: " << nameOfField << endl;
+    scheduleFile << "Location: " << location << endl;
+    scheduleFile << "Type of Field: " << typeOfField << endl;
+    scheduleFile << "Available Time Slots: " << endl;
+
+    for (int hour = 8; hour <= 22; ++hour) {
+        scheduleFile << hour << ":00 - " << hour + 1 << ":00: " << endl;
+        scheduleFile << "Available "<<endl;
+    }
+    scheduleFile << endl;
+    scheduleFile.close();
 }
 
 Field::Field(const Field &other)
