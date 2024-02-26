@@ -7,13 +7,13 @@
 
 Field::Field(char* nameOfField,char* location,char* typeOfField,int length, int width,float pricePerHour)
 {
-    this->nameOfField = new char[strlen(this->nameOfField)+1];
+    this->nameOfField = new char[strlen(nameOfField)+1];
     strcpy(this->nameOfField,nameOfField);
 
-    this->location = new char[strlen(this->location)+1];
+    this->location = new char[strlen(location)+1];
     strcpy(this->location,location);
 
-    this->typeOfField = new char[strlen(this->typeOfField)+1];
+    this->typeOfField = new char[strlen(typeOfField)+1];
     strcpy(this->typeOfField,typeOfField);
 
     this->width=width;

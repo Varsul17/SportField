@@ -2,17 +2,21 @@
 #include <cstring>
 #include  "User.h"
 #include "MainProgram.h"
+#include "Field.h"
+#include "Branch.h"
 
 
 
 
 
 int main() {
-//      User check;
-//      cout << "checked" <<endl;
-//      check.Set_Name();
-//    while(!check.Set_Password());
-//     MainProgram W;
+    Field myField("Field1", "Ashdod", "Soccer", 100, 50, 50.0);
+
+    // Printing details of the field
+    myField.printDetails();
+
+    // Writing schedule to file for the field
+    myField.writeScheduleToFile();
 
 
     return 0;

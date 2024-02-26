@@ -22,7 +22,7 @@ public:
     Field(char* nameOfField,char* location,char* typeOfField,int length, int width,float pricePerHour);
     Field(const Field &other);
     virtual ~Field(){delete[] nameOfField;}
-    virtual void printDetails();
+    void printDetails();
     char* getNameOfField()const{return nameOfField;}
     void writeScheduleToFile();
     char* getLocation()const{return location;}
