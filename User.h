@@ -34,13 +34,24 @@ public:
     bool Set_Email(); // Checked
     bool Set_ID(); //Checked
     bool Set_Phone(); //Checked
-    bool Set_Username();//Checked
-    bool Set_Password();
+    bool Set_Username(); //Checked
+    bool Set_Password(); // Checked
+    bool Set_Birthday();
     static void msg01() { cout << "Notice: Name can only contain letters and be up to 20 characters" << endl; }//Checked
     static void msg02() {cout << "Notice: Email must be in the format: example@company.ending and up to 35 characters" << endl;} // Checked
     static void msg03() {cout << "Notice: Phone number must start with 05, and be only digits" << endl;}
-    static void msg04() {cout << "Notice: username can be up to 10 characters and contain only letters and numbers" << endl;}
-    static void msg05() {cout << "Notice: Password must be at least 6 characters and up to 10 characters and must contain at least one uppercase one lowercase letters and a number" << endl;}
+    static void msg04() {cout << "Notice: username can be up to 10 characters and contain only letters and numbers" << endl;} // Checked
+    static void msg05() {cout << "Notice: Password must be at least 6 characters and up to 10 characters and must contain at least one uppercase one lowercase letters and a number" << endl;} // Checked
+    char* Get_ID() const {return ID;}
+    char* Get_First_Name() const {return first_name;}
+    char* Get_Last_Name() const {return last_name;}
+    char Get_Gender() const {return gender;}
+    char* Get_Email() const {return email;}
+    char* Get_Phone() const {return phone;}
+    char* Get_Username() const {return username;}
+    char* Get_Password() const {return password;}
+    char* Get_Address() const {return address;}
+    char* Get_bithday() const {return birthday}
 
 protected:
     char *ID;
@@ -52,7 +63,8 @@ protected:
     char *username;
     char *password;
     char *address;
-    Date birthday; // change to char
+    //   Date birthday;
+    char* date;
 
 public:
     User() {}
@@ -66,6 +78,7 @@ public:
                              email(copy.email), phone(copy.phone), username(copy.username),
                              password(copy.password), address(copy.address), birthday(copy.birthday) {}
 
+//    friend ostream& operator<<()
 };
 
 

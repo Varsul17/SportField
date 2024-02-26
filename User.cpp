@@ -220,9 +220,12 @@ bool User::Set_Password() {
             cout << "You Entered incorrect char, please try again" << endl;
             return false;
         }
-        this->password = Set_String(pass_check);
-        return true;
     }
-
+    this->password = Set_String(pass_check);
+    return true;
 }
 
+
+bool User::Set_Birthday() {
+
+}
