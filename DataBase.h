@@ -1,7 +1,3 @@
-//
-// Created by segev on 2/21/2024.
-//
-
 #ifndef WORK_1_PRINCIPLES_FIX_DATABASE_H
 #define WORK_1_PRINCIPLES_FIX_DATABASE_H
 #include <iostream>

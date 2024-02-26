@@ -111,6 +111,12 @@
 		<Unit filename="C:/Users/user/Desktop/SportField/Menu.h">
 			<Option target="SportField"/>
 		</Unit>
+		<Unit filename="C:/Users/user/Desktop/SportField/Player.cpp">
+			<Option target="SportField"/>
+		</Unit>
+		<Unit filename="C:/Users/user/Desktop/SportField/Player.h">
+			<Option target="SportField"/>
+		</Unit>
 		<Unit filename="C:/Users/user/Desktop/SportField/Time.cpp">
 			<Option target="SportField"/>
 		</Unit>

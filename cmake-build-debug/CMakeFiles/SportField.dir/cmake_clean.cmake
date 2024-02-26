@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/SportField.dir/Field.cpp.obj.d"
   "CMakeFiles/SportField.dir/Menu.cpp.obj"
   "CMakeFiles/SportField.dir/Menu.cpp.obj.d"
+  "CMakeFiles/SportField.dir/Player.cpp.obj"
+  "CMakeFiles/SportField.dir/Player.cpp.obj.d"
   "CMakeFiles/SportField.dir/Time.cpp.obj"
   "CMakeFiles/SportField.dir/Time.cpp.obj.d"
   "CMakeFiles/SportField.dir/User.cpp.obj"

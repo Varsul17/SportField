@@ -1,16 +1,14 @@
-//
-// Created by segev on 2/21/2024.
-//
-
 #ifndef WORK_1_PRINCIPLES_FIX_MENU_H
 #define WORK_1_PRINCIPLES_FIX_MENU_H
 #include <iostream>
 #include "DataBase.h"
+#include "User.h"
 
 
 
 class Menu: public DataBase{
 private:
+    User check;
     char tempId[50];
     char tempName[50];
     char tempLastName[50];

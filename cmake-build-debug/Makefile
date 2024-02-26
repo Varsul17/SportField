@@ -224,6 +224,30 @@ Menu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Menu.cpp.s
 .PHONY : Menu.cpp.s
 
+Player.obj: Player.cpp.obj
+.PHONY : Player.obj
+
+# target to build an object file
+Player.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Player.cpp.obj
+.PHONY : Player.cpp.obj
+
+Player.i: Player.cpp.i
+.PHONY : Player.i
+
+# target to preprocess a source file
+Player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Player.cpp.i
+.PHONY : Player.cpp.i
+
+Player.s: Player.cpp.s
+.PHONY : Player.s
+
+# target to generate assembly for a file
+Player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SportField.dir\build.make CMakeFiles/SportField.dir/Player.cpp.s
+.PHONY : Player.cpp.s
+
 Time.obj: Time.cpp.obj
 .PHONY : Time.obj
 
@@ -317,6 +341,9 @@ help:
 	@echo ... Menu.obj
 	@echo ... Menu.i
 	@echo ... Menu.s
+	@echo ... Player.obj
+	@echo ... Player.i
+	@echo ... Player.s
 	@echo ... Time.obj
 	@echo ... Time.i
 	@echo ... Time.s

@@ -68,7 +68,7 @@ void User::Set_Gender() {
     } while (error);
     if (Check_Lower(gend[0]))
         gend[0] = Lower_To_Upper(gend[0]);
-    this->gender = gend[0];
+    this->gender = gend;
 }
 
 
@@ -198,7 +198,7 @@ bool User::Set_Username() {
 
 bool User::Set_Password() {
     char pass_check[MAX];
-    cout << "Select password:" << endl;
+    cout << "Select username:" << endl;
     msg05();
     cin.getline(pass_check, MAX);
     int len = int(strlen(pass_check));
@@ -206,13 +206,13 @@ bool User::Set_Password() {
     if (Blank_Line(len))
         return false;
     if (len > PUP_LIM || len < PASS_MIN) {
-        cout << "You entered incorrect number of chars, please try again." << endl;
+        cout << "You Enterd incorrect number of chars, please try again." << endl;
         return false;
     }
     for (int i = 0; i < len; ++i) {
         if (Check_Number(pass_check[i]))
             ++num;
-        else if (Check_Upper(pass_check[i]))
+        else if(Check_Upper(pass_check[i]))
             ++upper;
         else if (Check_Lower(pass_check[i]))
             ++lower;
@@ -221,20 +221,18 @@ bool User::Set_Password() {
             return false;
         }
     }
-    if (!upper) {
-        cout << "You didn't entered uppercase letter, please try again." << endl;
-        return false;
-    }
-    if (!lower) {
-        cout << "You didn't entered lowercase letter, please try again." << endl;
-        return false;
-    }
-    if (!num) {
-        cout << "You didn't entered a number, please try again." << endl;
-        return false;
-    }
-    //this->password = Set_String(pass_check);
+    this->password = Set_String(pass_check);
     return true;
 }
 
 
+bool User::Set_Birthday() {
+    char day[MAX], month[MAX], year[MAX];
+    cout << "Enter the year" << endl;
+    cin >> year;
+    cout << "Enter the month" << endl;
+    cin >> month;
+    cout << "Enter the day" << endl;
+    cin >> day;
+//    if (month > 12)
+}

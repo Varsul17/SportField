@@ -34,31 +34,43 @@ public:
     bool Set_Email(); // Checked
     bool Set_ID(); //Checked
     bool Set_Phone(); //Checked
-    bool Set_Username();//Checked
-    bool Set_Password();
+    bool Set_Username(); //Checked
+    bool Set_Password(); // Checked
+    bool Set_Birthday();
     static void msg01() { cout << "Notice: Name can only contain letters and be up to 20 characters" << endl; }//Checked
     static void msg02() {cout << "Notice: Email must be in the format: example@company.ending and up to 35 characters" << endl;} // Checked
     static void msg03() {cout << "Notice: Phone number must start with 05, and be only digits" << endl;}
-    static void msg04() {cout << "Notice: username can be up to 10 characters and contain only letters and numbers" << endl;}
-    static void msg05() {cout << "Notice: Password must be at least 6 characters and up to 10 characters and must contain at least one uppercase one lowercase letters and a number" << endl;}
+    static void msg04() {cout << "Notice: username can be up to 10 characters and contain only letters and numbers" << endl;} // Checked
+    static void msg05() {cout << "Notice: Password must be at least 6 characters and up to 10 characters and must contain at least one uppercase one lowercase letters and a number" << endl;} // Checked
+    char* Get_ID() const {return ID;}
+    char* Get_First_Name() const {return first_name;}
+    char* Get_Last_Name() const {return last_name;}
+    char* Get_Gender() const {return gender;}
+    char* Get_Email() const {return email;}
+    char* Get_Phone() const {return phone;}
+    char* Get_Username() const {return username;}
+    char* Get_Password() const {return password;}
+    char* Get_Address() const {return address;}
+    char* Get_Bithday() const {return birthday;}
 
 protected:
     char *ID;
     char *first_name;
     char *last_name;
-    char gender;
+    char *gender;
     char *email;
     char *phone;
     char *username;
     char *password;
     char *address;
-    Date birthday; // change to char
+    //   Date birthday;
+    char* birthday;
 
 public:
     User() {}
 
-    User(char *n_ID, char *f_name, char *l_name, char n_gender, char *n_email, char *n_phone, char *user, char *pass,
-         char *add, Date birth) :
+    User(char *n_ID, char *f_name, char *l_name, char* n_gender, char *n_email, char *n_phone, char *user, char *pass,
+         char *add, char* birth) :
             ID(n_ID), first_name(f_name), last_name(l_name), gender(n_gender), email(n_email), phone(n_phone),
             username(user), password(pass), address(add), birthday(birth) {}
 
@@ -66,6 +78,7 @@ public:
                              email(copy.email), phone(copy.phone), username(copy.username),
                              password(copy.password), address(copy.address), birthday(copy.birthday) {}
 
+//    friend ostream& operator<<()
 };
 
 
