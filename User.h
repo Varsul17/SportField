@@ -29,6 +29,7 @@ public:
     static bool Blank_Line(int len); //Checked
     static bool Check_Name(char *); // Checked
     static char *Set_String(char *); // Checked
+    char* Set_address(){this->address = "Ashdod";}
     void Set_Name(); //Checked
     void Set_Gender(); //Checked
     bool Set_Email(); // Checked
@@ -51,7 +52,8 @@ public:
     char* Get_Username() const {return username;}
     char* Get_Password() const {return password;}
     char* Get_Address() const {return address;}
-    char* Get_Bithday() const {return birthday;}
+    char* Get_Bithday() const{return birthday;}
+    bool Check_Date(char*);
 
 protected:
     char *ID;
@@ -67,7 +69,7 @@ protected:
     char* birthday;
 
 public:
-    User() {}
+    User() {Set_ID();Set_Name();Set_Gender();Set_Email();Set_Phone();Set_Username();Set_Password();Set_address();}
 
     User(char *n_ID, char *f_name, char *l_name, char* n_gender, char *n_email, char *n_phone, char *user, char *pass,
          char *add, char* birth) :

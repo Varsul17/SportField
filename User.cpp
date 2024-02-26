@@ -225,14 +225,23 @@ bool User::Set_Password() {
     return true;
 }
 
+bool User::Check_Date(char * str){
+    int len = int(strlen(str));
+    for (int i = 0; i < len; ++i)
+        if (!Check_Number(str[i]))
+            return false;
+    return true;
+}
+
 
 bool User::Set_Birthday() {
-    char day[MAX], month[MAX], year[MAX];
-    cout << "Enter the year" << endl;
-    cin >> year;
-    cout << "Enter the month" << endl;
-    cin >> month;
-    cout << "Enter the day" << endl;
-    cin >> day;
-//    if (month > 12)
+//    char day[MAX], month[MAX], year[MAX];
+//    cout << "Enter the year" << endl;
+//    cin >> year;
+//    cout << "Enter the month" << endl;
+//    cin >> month;
+//    cout << "Enter the day" << endl;
+//    cin >> day;
+//    if (Check_Number())
+    this->birthday = "17/03/1998";
 }

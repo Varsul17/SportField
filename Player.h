@@ -9,8 +9,8 @@ private:
 public :
     Player(): User(){Set_VIP();}
 
-    void Set_VIP();
-    char* Get_VIp();
+    void Set_VIP(){this->VIP = "No";}
+    char* Get_VIp(){return VIP;}
 };
 
 
