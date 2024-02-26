@@ -38,7 +38,6 @@ MainProgram::MainProgram()
 
             } while (choice != 1 && choice != 2);
 
-
             switch (choice)
             {
                 case 1:
@@ -47,9 +46,12 @@ MainProgram::MainProgram()
                                  "In order to complete your registration as a new member in our system,\n"
                                  "we need some additional details from you.\n";
                     Player player;
-
+                    addPlayer(player);
+                    std::cout << "Thank you " << player.Get_First_Name() << " " << player.Get_Last_Name()
+                              << " You are now an existing customer in our system.\n"
+                                 " You can now log in.\n";
+                    choice = 2;
                     break;
-
                 }
                 case 2:
                 {
@@ -83,7 +85,8 @@ void MainProgram::addPlayer(Player playerToAdd)
             strcpy(tempMatrix[i][j], matrix[i][j]);
         }
     }
-    std::cout <<counter << std::endl;
+
+    //std::cout << counter << std::endl;
 
     tempMatrix[counter] = new char *[NumberOfColl];
 
@@ -126,6 +129,7 @@ void MainProgram::addPlayer(Player playerToAdd)
         }
         std::cout << std::endl;
     }
+    
     counter++;
     matrix = tempMatrix;
 }

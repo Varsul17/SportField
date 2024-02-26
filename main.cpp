@@ -5,8 +5,12 @@
 
 
 
+
+
 int main() {
-//    User check;
+//      User check;
+//      cout << "checked" <<endl;
+//      check.Set_Name();
 //    while(!check.Set_Password());
      MainProgram W;
 

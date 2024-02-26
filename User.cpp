@@ -28,26 +28,29 @@ bool User::Check_Name(char *str) {
 
 
 void User::Set_Name() { //need to add blank line.
-    char f_name[MAX];
-    char l_name[MAX];
-    cout << "Enter your first name: " << endl;
-    msg01();
-    cin >> f_name;
-    while (!Check_Name(f_name) || !(Check_Range(1, NAME_LIM, int(strlen(first_name))))) {
-        cout << "The name you enter was incorrect, please try again:" << endl;
-        msg01();
-        cin >> f_name;
-    }
-    cout << "Enter your Last name" << endl;
-    msg01();
-    cin >> l_name;
-    while (!Check_Name(l_name) || !(Check_Range(1, NAME_LIM, int(strlen(last_name))))) {
-        cout << "The name you enter was incorrect, please try again:" << endl;
-        msg01();
-        cin >> l_name;
-    }
-    this->first_name = Set_String(f_name);
-    this->last_name = Set_String(l_name);
+//    char f_name[MAX];
+//    char l_name[MAX];
+//    cout << "Enter your first name: " << endl;
+//    msg01();
+//    cin >> f_name;
+//    while (!Check_Name(f_name) ||
+//    !(Check_Range(1, NAME_LIM, int(strlen(first_name))))) {
+//        cout << "The name you enter was incorrect, please try again:" << endl;
+//        msg01();
+//        cin >> f_name;
+//    }
+//    cout << "Enter your Last name" << endl;
+//    msg01();
+//    cin >> l_name;
+//    while (!Check_Name(l_name) || !(Check_Range(1, NAME_LIM, int(strlen(last_name))))) {
+//        cout << "The name you enter was incorrect, please try again:" << endl;
+//        msg01();
+//        cin >> l_name;
+//    }
+//    this->first_name = Set_String(f_name);
+//    this->last_name = Set_String(l_name);
+    this->first_name = "segev";
+    this->last_name = "Man";
 }
 
 

@@ -29,7 +29,8 @@ public:
     static bool Blank_Line(int len); //Checked
     static bool Check_Name(char *); // Checked
     static char *Set_String(char *); // Checked
-    char* Set_address(){this->address = "Ashdod";}
+    void Set_address(){address = new char[strlen("ashdod")];
+    address = "ashdod";}
     void Set_Name(); //Checked
     void Set_Gender(); //Checked
     bool Set_Email(); // Checked
