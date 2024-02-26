@@ -1,3 +1,0 @@
-"D:\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\SportField.dir/objects.a
-"D:\CLion 2022.2.4\bin\mingw\bin\ar.exe" qc CMakeFiles\SportField.dir/objects.a @CMakeFiles\SportField.dir\objects1.rsp
-"D:\CLion 2022.2.4\bin\mingw\bin\g++.exe" -g -Wl,--whole-archive CMakeFiles\SportField.dir/objects.a -Wl,--no-whole-archive -o SportField.exe -Wl,--out-implib,libSportField.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\SportField.dir\linklibs.rsp
