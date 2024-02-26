@@ -145,3 +145,96 @@ bool User::Set_ID() { // Maybe add an option to checked valid ID.
     this->ID = Set_String(ID_check);
     return true;
 }
+
+
+bool User::Set_Phone() {
+    char phone_check[MAX];
+    cout << "Enter your phone number:" << endl;
+    msg03();
+    cin.getline(phone_check, MAX);
+    int len = int(strlen(phone_check));
+    if (Blank_Line(len))
+        return false;
+    if (len != PUP_LIM) {
+        cout << "You enter incorrect number of digits, please try again." << endl;
+        return false;
+    }
+    if (phone_check[0] != '0')
+        cout <<"Your number doesn't start with 0, please try again." << endl;
+    if (phone_check[1] != '5')
+        cout <<"Your number doesn't start with 05, please try again." << endl;
+    for (int i = 0; i < len; ++i) {
+        if (!Check_Number(phone_check[i])) {
+            cout << "You entered incorrect char, please try again." << endl;
+            return false;
+        }
+    }
+    this->phone = Set_String(phone_check);
+    return true;
+}
+
+
+bool User::Set_Username() {
+    char username_check[MAX];
+    cout << "Select username:" << endl;
+    msg04();
+    cin.getline(username_check, MAX);
+    int len = int(strlen(username_check));
+    if (Blank_Line(len))
+        return false;
+    if (len > PUP_LIM) {
+        cout << "The username you chose is to long, please try again." << endl;
+        return false;
+    }
+    for (int i = 0; i < len; ++i)
+        if (!Check_Let(username_check[i]) && !Check_Number(username_check[i])) {
+            cout << "You entered incorrect char, please try again." << endl;
+            return false;
+        }
+    this->username = Set_String(username_check);
+    return true;
+}
+
+
+bool User::Set_Password() {
+    char pass_check[MAX];
+    cout << "Select password:" << endl;
+    msg05();
+    cin.getline(pass_check, MAX);
+    int len = int(strlen(pass_check));
+    int upper = 0, lower = 0, num = 0;
+    if (Blank_Line(len))
+        return false;
+    if (len > PUP_LIM || len < PASS_MIN) {
+        cout << "You entered incorrect number of chars, please try again." << endl;
+        return false;
+    }
+    for (int i = 0; i < len; ++i) {
+        if (Check_Number(pass_check[i]))
+            ++num;
+        else if (Check_Upper(pass_check[i]))
+            ++upper;
+        else if (Check_Lower(pass_check[i]))
+            ++lower;
+        else {
+            cout << "You Entered incorrect char, please try again" << endl;
+            return false;
+        }
+    }
+    if (!upper) {
+        cout << "You didn't entered uppercase letter, please try again." << endl;
+        return false;
+    }
+    if (!lower) {
+        cout << "You didn't entered lowercase letter, please try again." << endl;
+        return false;
+    }
+    if (!num) {
+        cout << "You didn't entered a number, please try again." << endl;
+        return false;
+    }
+    //this->password = Set_String(pass_check);
+    return true;
+}
+
+

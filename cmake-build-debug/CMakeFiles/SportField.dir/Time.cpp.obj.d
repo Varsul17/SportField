@@ -1,3 +1,3 @@
 CMakeFiles/SportField.dir/Time.cpp.obj: \
- C:\Users\segev\CLionProjects\SportField\Time.cpp \
- C:\Users\segev\CLionProjects\SportField\Time.h
+ C:\Users\user\Desktop\SportField\Time.cpp \
+ C:\Users\user\Desktop\SportField\Time.h
