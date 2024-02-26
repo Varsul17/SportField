@@ -244,5 +244,5 @@ bool User::Set_Birthday() {
 //    cout << "Enter the day" << endl;
 //    cin >> day;
 //    if (Check_Number())
-    this->birthday= "17/03/1998";
+    this->birthday= "17/03/19988";
 }
