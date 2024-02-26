@@ -74,6 +74,7 @@ MainProgram::MainProgram()
 void MainProgram::addPlayer(Player playerToAdd)
 {
     char*** tempMatrix = new char ** [counter+1];
+    std::cout << playerToAdd.Get_Gender();
 
     for (int i = 0; i < counter; ++i)
     {
@@ -85,8 +86,6 @@ void MainProgram::addPlayer(Player playerToAdd)
             strcpy(tempMatrix[i][j], matrix[i][j]);
         }
     }
-
-    //std::cout << counter << std::endl;
 
     tempMatrix[counter] = new char *[NumberOfColl];
 

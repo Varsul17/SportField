@@ -3,7 +3,7 @@
 //
 
 #include "DataBase.h"
-#define NumberOfColl 10
+#define NumberOfColl 9
 
 
 
@@ -102,6 +102,14 @@ DataBase::~DataBase() {
     }
     delete[] matrix;
 }
+
+
+
+
+
+
+
+
 
 DataBase& DataBase::operator=(const DataBase& other) {
     if (this != &other) { // Avoid self-assignment
