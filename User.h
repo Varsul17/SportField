@@ -69,7 +69,14 @@ protected:
     char* birthday;
 
 public:
-    User() {Set_ID();Set_Name();Set_Gender();Set_Email();Set_Phone();Set_Username();Set_Password();Set_address();}
+    User() {while(Set_ID());
+            Set_Name();
+            Set_Gender();
+            while(Set_Email());
+            while(Set_Phone());
+            while(Set_Username());
+            while(Set_Password());
+            Set_address();}
 
     User(char *n_ID, char *f_name, char *l_name, char* n_gender, char *n_email, char *n_phone, char *user, char *pass,
          char *add, char* birth) :

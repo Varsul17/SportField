@@ -126,6 +126,7 @@ bool User::Set_Email() { // Add Not only @.
 
 
 bool User::Set_ID() { // Maybe add an option to checked valid ID.
+    getchar();
     char ID_check[MAX];
     cout << "Enter an ID, must be only 9 digits" << endl;
     cin.getline(ID_check, MAX);
@@ -243,5 +244,5 @@ bool User::Set_Birthday() {
 //    cout << "Enter the day" << endl;
 //    cin >> day;
 //    if (Check_Number())
-    this->birthday = "17/03/1998";
+    this->birthday= "17/03/1998";
 }
