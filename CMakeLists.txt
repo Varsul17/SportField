@@ -18,4 +18,5 @@ add_executable(SportField
         Time.cpp
         Time.h
         main.cpp
-        DataBase.cpp Player.cpp Player.h)
+        DataBase.cpp Player.cpp Player.h
+        MainProgram.cpp)
