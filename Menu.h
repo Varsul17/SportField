@@ -24,7 +24,6 @@ public:
     Menu();
     void addData(char* id, char* name, char* lastName, char* Birthday,char* phone,
                  char* userName,char* password,char* address,char* vip, char* gender);
-
     void removeData();
     void editData();
     void editDateSupport(int index, char* str, int line);
