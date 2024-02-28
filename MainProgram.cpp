@@ -98,8 +98,8 @@ void MainProgram::addPlayer(Player playerToAdd)
     tempMatrix[counter][2] = new char[strlen(playerToAdd.Get_Last_Name()) + 1];
     strcpy(tempMatrix[counter][2], playerToAdd.Get_Last_Name());
 
-    tempMatrix[counter][3] = new char[strlen(playerToAdd.Get_Bithday()) + 1];
-    strcpy(tempMatrix[counter][3],playerToAdd.Get_Bithday() );
+    tempMatrix[counter][3] = new char[strlen(playerToAdd.Get_Birthday()) + 1];
+    strcpy(tempMatrix[counter][3],playerToAdd.Get_Birthday() );
 
     tempMatrix[counter][4] = new char[strlen(playerToAdd.Get_Phone()) + 1];
     strcpy(tempMatrix[counter][4], playerToAdd.Get_Phone());

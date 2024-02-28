@@ -10,13 +10,8 @@
 
 
 int main() {
-    Field myField("Field1", "Ashdod", "Soccer", 100, 50, 50.0);
-
-    // Printing details of the field
-    myField.printDetails();
-
-    // Writing schedule to file for the field
-    myField.writeScheduleToFile();
+    Player gal;
+    cout << gal;
 
 
     return 0;
