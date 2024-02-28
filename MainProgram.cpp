@@ -86,7 +86,7 @@ void MainProgram::addPlayer(Player playerToAdd)
             strcpy(tempMatrix[i][j], matrix[i][j]);
         }
     }
-
+//
     tempMatrix[counter] = new char *[NumberOfColl];
 
     tempMatrix[counter][0] = new char[strlen(playerToAdd.Get_ID()) + 1];
