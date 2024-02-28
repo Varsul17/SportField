@@ -11,7 +11,7 @@ public :
     ~Player(){delete this->VIP;}
 
     void Set_VIP();
-    char* Get_VIp(){return VIP;}
+    char* Get_VIP(){return VIP;}
 };
 
 
