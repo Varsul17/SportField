@@ -95,16 +95,16 @@ public:
                              password(copy.password), address(copy.address), birthday(copy.birthday) {}
 
     ~User(){
-        delete this->ID;
-        delete this->first_name;
-        delete this->last_name;
-        delete this->email;
-        delete this->gender;
-        delete this->phone;
-        delete this->username;
-        delete this->password;
-        delete this->birthday;
-        delete this->address;
+        delete [] this->ID;
+        delete [] this->first_name;
+        delete [] this->last_name;
+        delete [] this->email;
+        delete [] this->gender;
+        delete [] this->phone;
+        delete [] this->username;
+        delete [] this->password;
+        delete [] this->birthday;
+        delete [] this->address;
     }
 
     friend ostream& operator<<(ostream& out, User& print) {

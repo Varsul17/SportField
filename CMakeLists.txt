@@ -17,4 +17,4 @@ add_executable(SportField
         Menu.h
         main.cpp
         DataBase.cpp Player.cpp Player.h
-        MainProgram.cpp)
+        MainProgram.cpp Manager.cpp Manager.h)
