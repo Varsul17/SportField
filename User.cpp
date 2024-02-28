@@ -27,30 +27,31 @@ bool User::Check_Name(char *str) {
 }
 
 
-void User::Set_Name() { //need to add blank line.
-//    char f_name[MAX];
-//    char l_name[MAX];
-//    cout << "Enter your first name: " << endl;
-//    msg01();
-//    cin >> f_name;
-//    while (!Check_Name(f_name) ||
-//    !(Check_Range(1, NAME_LIM, int(strlen(first_name))))) {
-//        cout << "The name you enter was incorrect, please try again:" << endl;
-//        msg01();
-//        cin >> f_name;
-//    }
-//    cout << "Enter your Last name" << endl;
-//    msg01();
-//    cin >> l_name;
-//    while (!Check_Name(l_name) || !(Check_Range(1, NAME_LIM, int(strlen(last_name))))) {
-//        cout << "The name you enter was incorrect, please try again:" << endl;
-//        msg01();
-//        cin >> l_name;
-//    }
-//    this->first_name = Set_String(f_name);
-//    this->last_name = Set_String(l_name);
-    this->first_name = "segev";
-    this->last_name = "Man";
+bool User::Set_Name() {
+    char f_name[MAX];
+    char l_name[MAX];
+    cout << "Enter your first name: " << endl;
+    msg01();
+    cin.getline(f_name,MAX);
+    while (!Check_Name(f_name) || Blank_Line(strlen(f_name)) || !(Check_Range(1, NAME_LIM, int(strlen(f_name))))) {
+        cout << "The name you enter was incorrect, please try again:" << endl;
+        msg01();
+        cin.getline(f_name,MAX);
+    }
+    cout << "Enter your Last name" << endl;
+    msg01();
+    cin.getline(l_name, MAX);
+    while (!Check_Name(l_name) || Blank_Line(strlen(l_name)) || !(Check_Range(1, NAME_LIM, int(strlen(l_name))))) {
+        cout << "The name you enter was incorrect, please try again:" << endl;
+        msg01();
+        cin.getline(l_name, MAX);
+    }
+    this->first_name = Set_String(f_name);
+    this->last_name = Set_String(l_name);
+//    this->first_name = new char[strlen("segev")];
+//    strcpy(first_name, "segev");
+//    this->last_name = new char[strlen("Man")];
+//    strcpy(last_name, "Man");
 }
 
 
@@ -71,8 +72,9 @@ void User::Set_Gender() {
     } while (error);
     if (Check_Lower(gend[0]))
         gend[0] = Lower_To_Upper(gend[0]);
-    this->gender = new char [1];
-    strcpy(this->gender, gend);
+    this->gender = new char[2];
+    this->gender[0] = gend[0];
+    this->gender[1] = '\0'; // Null terminator to mark the end of the string
 }
 
 
@@ -86,6 +88,7 @@ void User::Set_Gender() {
  *      - The mail must have a dot after the at sign.
  *      The function only return true if all the rules are true, otherwise false.    */
 bool User::Set_Email() { // Add Not only @.
+//    getchar();
     char email_check[MAX];
     cout << "Enter an email:" << endl;
     msg02();
@@ -122,6 +125,14 @@ bool User::Set_Email() { // Add Not only @.
     }
     if (index_dot == len - 1) {
         cout << "An email cannot end in dot, an ending must be added, please try again." << endl;
+        return false;
+    }
+    if(index_at_sign == 0){
+        cout <<"An email cannot start with an at sign, please try again." << endl;
+        return false;
+    }
+    if (index_dot == index_at_sign + 1){
+        cout << "A dot cannot appear right after the at sigh, please try again."  <<endl;
         return false;
     }
     this->email = Set_String(email_check);
@@ -164,10 +175,20 @@ bool User::Set_Phone() {
         cout << "You enter incorrect number of digits, please try again." << endl;
         return false;
     }
-    if (phone_check[0] != '0')
-        cout <<"Your number doesn't start with 0, please try again." << endl;
-    if (phone_check[1] != '5')
-        cout <<"Your number doesn't start with 05, please try again." << endl;
+    for (int i = 0; i <len; ++i){
+        if (!Check_Number(phone_check[i])) {
+            cout << "You entered incorrect character, please try again." <<endl;
+            return false;
+        }
+    }
+    if (phone_check[0] != '0') {
+        cout << "Your number doesn't start with 0, please try again." << endl;
+        return false;
+    }
+    if (phone_check[1] != '5') {
+        cout << "Your number doesn't start with 05, please try again." << endl;
+        return false;
+    }
     for (int i = 0; i < len; ++i) {
         if (!Check_Number(phone_check[i])) {
             cout << "You entered incorrect char, please try again." << endl;
@@ -203,7 +224,7 @@ bool User::Set_Username() {
 
 bool User::Set_Password() {
     char pass_check[MAX];
-    cout << "Select username:" << endl;
+    cout << "Select password:" << endl;
     msg05();
     cin.getline(pass_check, MAX);
     int len = int(strlen(pass_check));
@@ -211,7 +232,7 @@ bool User::Set_Password() {
     if (Blank_Line(len))
         return false;
     if (len > PUP_LIM || len < PASS_MIN) {
-        cout << "You Enterd incorrect number of chars, please try again." << endl;
+        cout << "You entered incorrect number of chars, please try again." << endl;
         return false;
     }
     for (int i = 0; i < len; ++i) {
@@ -222,32 +243,106 @@ bool User::Set_Password() {
         else if (Check_Lower(pass_check[i]))
             ++lower;
         else {
-            cout << "You Entered incorrect char, please try again" << endl;
+            cout << "You entered incorrect char, please try again." << endl;
             return false;
         }
+    }
+    if (!upper || !lower || !num) {
+        cout << "The password doesn't meet the requirements, please try again" << endl;
+        return false;
     }
     this->password = Set_String(pass_check);
     return true;
 }
 
-bool User::Check_Date(char * str){
+
+
+bool User::Check_Date(char* str, int max, int min) {
     int len = int(strlen(str));
+    if (Blank_Line(strlen(str)))
+        return false;
     for (int i = 0; i < len; ++i)
-        if (!Check_Number(str[i]))
+        if (!Check_Number(str[i])) {
+            cout << "incorrect char was entered, please try again." << endl;
             return false;
+        }
+    int check = stoi(str);
+    if (check > max|| check <= min) {
+        cout << "The number is impossible for a date, please try again." << endl;
+        return false;
+    }
     return true;
 }
 
 
-void User::Set_Birthday() {
-//    char day[MAX], month[MAX], year[MAX];
-//    cout << "Enter the year" << endl;
-//    cin >> year;
-//    cout << "Enter the month" << endl;
-//    cin >> month;
-//    cout << "Enter the day" << endl;
-//    cin >> day;
-//    if (Check_Number())
-    this->birthday = new char[strlen("17/03/1998")];
-    this->birthday = "17/03/1998";
+bool User::Set_Birthday() {
+    char year[MAX], month[MAX], day[MAX];
+    bool check;
+    do {
+        check = true;
+        cout << "Enter the year, 1900 is the minimum and 2015 is the maximum." << endl;
+        cin.getline(year, MAX);
+    } while (!Check_Date(year, 2015,1899) || !check);
+    do {
+        cout << "Enter the number of the month:" << endl;
+        cin.getline(month, MAX);
+    } while (!Check_Date(month, 12, 0));
+    do {
+        cout << "Enter the number of the day:" << endl;
+        cin.getline(day, MAX);
+    } while (!Check_Date(day, 31, 0));
+    int check_day = stoi(day);
+    int check_month = stoi(month);
+    int check_year = stoi(year);
+    if (check_month != 1 && check_month != 3 && check_month != 5 && check_month != 7 && check_month != 8 &&
+        check_month != 10 && check_month != 12) {
+        if (check_day == 31) {
+            cout << "The month doesn't have 31 days, please try again." << endl;
+            return false;
+        } else if (check_month == 2) {
+            if (check_day > 29) {
+                cout << "The month doesn't have more than 29 days, please try again." << endl;
+                return false;
+            }
+        }
+    }
+    char temp[11]; // Increase array size to accommodate the null terminator
+    temp[0] = Int_To_Char(check_day / 10);
+    temp[1] = Int_To_Char(check_day % 10);
+    temp[2] = '\\';
+    temp[3] = Int_To_Char(check_month / 10);
+    temp[4] = Int_To_Char(check_month % 10);
+    temp[5] = '\\';
+    temp[6] = Int_To_Char(check_year / 1000);
+    temp[7] = Int_To_Char((check_year / 100) % 10);
+    temp[8] = Int_To_Char((check_year / 10) % 10);
+    temp[9] = Int_To_Char(check_year % 10);
+    temp[10] = '\0'; // Null terminator to mark the end of the string
+    this->birthday = new char[11];
+    for (int i = 0; i < 11; ++i)
+        this->birthday[i] = temp[i];
+    return true;
+}
+
+
+bool User::Set_Address() {
+    char addr[MAX];
+    cout << "Enter your address, up to 30 characters:" << endl;
+    msg06();
+    cin.getline(addr, MAX);
+    int len = int(strlen(addr));
+    if (Blank_Line(len))
+        return false;
+    if (len > ADDRESS_LIM){
+        cout << "The address is to long, please try again" << endl;
+        return false;
+    }
+    for (int i = 0; i < len; ++i){
+        if (!Check_Number(addr[i]) && !Check_Let(addr[i]) && addr[i] != SLASH && addr[i] != SPACE && addr[i] != BACKSLASH){
+            cout << "Incorrect char was entered, please try again." << endl;
+            return false;
+        }
+    }
+    this->address = Set_String(addr);
+    return true;
 }

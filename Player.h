@@ -8,10 +8,10 @@ private:
 
 public :
     Player(): User(){Set_VIP();}
+    ~Player(){delete this->VIP;}
 
-    void Set_VIP(){this->VIP = "No";}
+    void Set_VIP();
     char* Get_VIp(){return VIP;}
-    //GAL
 };
 
 
