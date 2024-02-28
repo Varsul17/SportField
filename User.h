@@ -74,16 +74,16 @@ protected:
     char* birthday; // checked
 
 public:
-//    User() {while(!Set_ID());
-//        Set_Name();
-//        Set_Gender();
-//        while(!Set_Email());
-//        while(!Set_Phone());
-//        while(!Set_Username());
-//        while(!Set_Password());
-//        Set_address();
-//        Set_Birthday();}
-    User(){}
+    User() {while(!Set_ID());
+        Set_Name();
+        Set_Gender();
+        while(!Set_Email());
+        while(!Set_Phone());
+        while(!Set_Username());
+        while(!Set_Password());
+        while(!Set_Address());
+        while(!Set_Birthday());}
+//    User(){}
 
     User(char *n_ID, char *f_name, char *l_name, char* n_gender, char *n_email, char *n_phone, char *user, char *pass,
          char *add, char* birth) :
