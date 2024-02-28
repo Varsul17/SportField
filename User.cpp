@@ -47,7 +47,7 @@ bool User::Set_Name() {
         cin.getline(l_name, MAX);
     }
     this->first_name = Set_String(f_name);
-    this->last_name = Set_String(l_name);
+    //this->last_name = Set_String(l_name);
 }
 
 

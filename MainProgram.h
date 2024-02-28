@@ -17,7 +17,7 @@ private:
 public:
     MainProgram();
 
-    void addPlayer(Player playerToAdd);
+    void addPlayer();
 
 };
 

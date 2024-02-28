@@ -14,7 +14,6 @@ protected:
 public:
     DataBase();
     ~DataBase();
-    DataBase& operator=(const DataBase& other); // Copy assignment operator
 };
 
 
