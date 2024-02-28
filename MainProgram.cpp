@@ -73,8 +73,7 @@ MainProgram::MainProgram()
 
 void MainProgram::addPlayer(Player playerToAdd)
 {
-    char*** tempMatrix = new char ** [counter+1];
-    std::cout << playerToAdd.Get_Gender();
+    char*** tempMatrix = new char**[counter + 1];
 
     for (int i = 0; i < counter; ++i)
     {
@@ -86,49 +85,78 @@ void MainProgram::addPlayer(Player playerToAdd)
             strcpy(tempMatrix[i][j], matrix[i][j]);
         }
     }
-//
-    tempMatrix[counter] = new char *[NumberOfColl];
 
-    tempMatrix[counter][0] = new char[strlen(playerToAdd.Get_ID()) + 1];
-    strcpy(tempMatrix[counter][0], playerToAdd.Get_ID());
+    tempMatrix[counter] = new char*[NumberOfColl];
 
-    tempMatrix[counter][1] = new char[strlen(playerToAdd.Get_First_Name()) + 1];
-    strcpy(tempMatrix[counter][1], playerToAdd.Get_First_Name());
+    char* id = playerToAdd.Get_ID();
+    char* firstName = playerToAdd.Get_First_Name();
+    char* lastName = playerToAdd.Get_Last_Name();
+    char* birthday = playerToAdd.Get_Birthday();
+    char* phone = playerToAdd.Get_Phone();
+    char* username = playerToAdd.Get_Username();
+    char* password = playerToAdd.Get_Password();
+    char* address = playerToAdd.Get_Address();
+    char* vip = playerToAdd.Get_VIP();
+    char* gender = playerToAdd.Get_Gender();
 
-    tempMatrix[counter][2] = new char[strlen(playerToAdd.Get_Last_Name()) + 1];
-    strcpy(tempMatrix[counter][2], playerToAdd.Get_Last_Name());
+    tempMatrix[counter][0] = new char[strlen(id) + 1];
+    strcpy(tempMatrix[counter][0], id);
 
-    tempMatrix[counter][3] = new char[strlen(playerToAdd.Get_Birthday()) + 1];
-    strcpy(tempMatrix[counter][3],playerToAdd.Get_Birthday() );
+    tempMatrix[counter][1] = new char[strlen(firstName) + 1];
+    strcpy(tempMatrix[counter][1], firstName);
 
-    tempMatrix[counter][4] = new char[strlen(playerToAdd.Get_Phone()) + 1];
-    strcpy(tempMatrix[counter][4], playerToAdd.Get_Phone());
+    tempMatrix[counter][2] = new char[strlen(lastName) + 1];
+    strcpy(tempMatrix[counter][2], lastName);
 
-    tempMatrix[counter][5] = new char[strlen(playerToAdd.Get_Username()) + 1];
-    strcpy(tempMatrix[counter][5], playerToAdd.Get_Username());
+    tempMatrix[counter][3] = new char[strlen(birthday) + 1];
+    strcpy(tempMatrix[counter][3], birthday);
 
-    tempMatrix[counter][6] = new char[strlen(playerToAdd.Get_Password()) + 1];
-    strcpy(tempMatrix[counter][6], playerToAdd.Get_Password());
+    tempMatrix[counter][4] = new char[strlen(phone) + 1];
+    strcpy(tempMatrix[counter][4], phone);
 
-    tempMatrix[counter][7] = new char[strlen(playerToAdd.Get_Address()) + 1];
-    strcpy(tempMatrix[counter][7], playerToAdd.Get_Address());
+    tempMatrix[counter][5] = new char[strlen(username) + 1];
+    strcpy(tempMatrix[counter][5], username);
 
-    tempMatrix[counter][8] = new char[strlen(playerToAdd.Get_VIp()) + 1];
-    strcpy(tempMatrix[counter][8], playerToAdd.Get_VIp());
+    tempMatrix[counter][6] = new char[strlen(password) + 1];
+    strcpy(tempMatrix[counter][6], password);
 
-    tempMatrix[counter][9] = new char[strlen(playerToAdd.Get_Gender()) + 1];
-    strcpy(tempMatrix[counter][9], playerToAdd.Get_Gender());
+    tempMatrix[counter][7] = new char[strlen(address) + 1];
+    strcpy(tempMatrix[counter][7], address);
 
+    tempMatrix[counter][8] = new char[strlen(vip) + 1];
+    strcpy(tempMatrix[counter][8], vip);
 
-    for (int i = 0; i < counter+1; ++i)
+    tempMatrix[counter][9] = new char[strlen(gender) + 1];
+    strcpy(tempMatrix[counter][9], gender);
+
+    // Free the old matrix memory
+    for (int i = 0; i < counter; ++i) {
+        for (int j = 0; j < NumberOfColl; ++j) {
+            delete[] matrix[i][j];
+        }
+        delete[] matrix[i];
+    }
+    delete[] matrix;
+
+    counter++;
+    matrix = tempMatrix;
+
+    for (int i = 0; i < counter; ++i)
     {
         for (int j = 0; j < NumberOfColl; ++j)
         {
-            std::cout << tempMatrix[i][j] << " ";
+            std::cout << matrix[i][j] << " ";
         }
         std::cout << std::endl;
     }
-    
-    counter++;
-    matrix = tempMatrix;
+
+    for (int i = 0; i < counter-1; ++i) {
+        for (int j = 0; j < NumberOfColl; ++j) {
+            delete[] tempMatrix[i][j];
+        }
+        delete[] tempMatrix[i];
+    }
+    delete[] tempMatrix;
+
+
 }

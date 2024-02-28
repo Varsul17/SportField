@@ -10,8 +10,9 @@
 
 
 int main() {
-    Player gal;
-    cout << gal;
+//    Player gal;
+//    cout << gal;
+    MainProgram c;
 
 
     return 0;
