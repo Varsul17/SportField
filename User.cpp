@@ -141,7 +141,7 @@ bool User::Set_Email() { // Add Not only @.
 
 
 bool User::Set_ID() { // Maybe add an option to checked valid ID.
-    getchar();
+//    getchar();
     char ID_check[MAX];
     cout << "Enter an ID, must be only 9 digits" << endl;
     cin.getline(ID_check, MAX);
