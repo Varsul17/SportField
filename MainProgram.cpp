@@ -71,7 +71,6 @@ MainProgram::MainProgram()
     }
 }
 
-
 void MainProgram::addPlayer(Player playerToAdd)
 {
     char*** tempMatrix = new char**[counter + 1];
@@ -97,7 +96,7 @@ void MainProgram::addPlayer(Player playerToAdd)
     char* username = playerToAdd.Get_Username();
     char* password = playerToAdd.Get_Password();
     char* address = playerToAdd.Get_Address();
-    char* vip = playerToAdd.Get_VIp();
+    char* vip = playerToAdd.Get_VIP();
     char* gender = playerToAdd.Get_Gender();
 
     tempMatrix[counter][0] = new char[strlen(id) + 1];
@@ -139,11 +138,10 @@ void MainProgram::addPlayer(Player playerToAdd)
     }
     delete[] matrix;
 
-    // Assign the new matrix to matrix
     counter++;
     matrix = tempMatrix;
 
-    for (int i = 0; i < counter + 1; ++i)
+    for (int i = 0; i < counter; ++i)
     {
         for (int j = 0; j < NumberOfColl; ++j)
         {
@@ -151,6 +149,14 @@ void MainProgram::addPlayer(Player playerToAdd)
         }
         std::cout << std::endl;
     }
+
+    for (int i = 0; i < counter-1; ++i) {
+        for (int j = 0; j < NumberOfColl; ++j) {
+            delete[] tempMatrix[i][j];
+        }
+        delete[] tempMatrix[i];
+    }
+    delete[] tempMatrix;
 
 
 }

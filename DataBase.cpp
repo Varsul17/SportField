@@ -10,7 +10,7 @@
 
 DataBase::DataBase()
 {
-    const std::string FILE_PATH = "C:\\Users\\segev\\CLionProjects\\SportField\\players list";
+    const std::string FILE_PATH = "C:\\Users\\user\\Desktop\\SportField\\players list";
     {
         mainDate.open(FILE_PATH, std::ios::in);
 
@@ -68,10 +68,12 @@ DataBase::DataBase()
     mainDate.close();
 }
 
+
+
 DataBase::~DataBase() {
     std::cout << "detractor" << std::endl;
 
-    const std::string FILE_PATH = "C:\\Users\\segev\\CLionProjects\\SportField\\players list";
+    const std::string FILE_PATH = "C:\\Users\\user\\Desktop\\SportField\\players list";
     std::ofstream ofs(FILE_PATH, std::ofstream::out | std::ofstream::trunc);
 
     if (!ofs.is_open()) {

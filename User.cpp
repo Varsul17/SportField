@@ -32,11 +32,11 @@ bool User::Set_Name() {
     char l_name[MAX];
     cout << "Enter your first name: " << endl;
     msg01();
-    cin.getline(f_name,MAX);
+    cin.getline(f_name, MAX);
     while (!Check_Name(f_name) || Blank_Line(strlen(f_name)) || !(Check_Range(1, NAME_LIM, int(strlen(f_name))))) {
         cout << "The name you enter was incorrect, please try again:" << endl;
         msg01();
-        cin.getline(f_name,MAX);
+        cin.getline(f_name, MAX);
     }
     cout << "Enter your Last name" << endl;
     msg01();
@@ -48,10 +48,6 @@ bool User::Set_Name() {
     }
     this->first_name = Set_String(f_name);
     this->last_name = Set_String(l_name);
-//    this->first_name = new char[strlen("segev")];
-//    strcpy(first_name, "segev");
-//    this->last_name = new char[strlen("Man")];
-//    strcpy(last_name, "Man");
 }
 
 

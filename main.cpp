@@ -10,6 +10,10 @@
 
 
 int main() {
-    MainProgram w;
+//    Player gal;
+//    cout << gal;
+    MainProgram c;
+
+
     return 0;
 }
